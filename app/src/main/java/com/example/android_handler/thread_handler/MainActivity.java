@@ -1,4 +1,4 @@
-package com.example.android_handler;
+package com.example.android_handler.thread_handler;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.android_handler.R;
 
 public class MainActivity extends AppCompatActivity {
     private static final int MESSAGE_COUNT_DOWN = 1001;
