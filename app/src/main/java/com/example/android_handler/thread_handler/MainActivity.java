@@ -3,6 +3,7 @@ package com.example.android_handler.thread_handler;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -12,12 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android_handler.R;
+import com.example.android_handler.looper_messagequeue.LooperMessageQueueActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static final int MESSAGE_COUNT_DOWN = 1001;
     private static final int MESSAGE_DONE = 1002;
     private TextView textViewTimer;
-    private Button buttonCount;
+    private Button buttonCount, buttonSwitchToActivityLooper;
     private Handler handler;
 
     @Override
@@ -61,11 +63,20 @@ public class MainActivity extends AppCompatActivity {
                 doCountDown();
             }
         });
+
+        buttonSwitchToActivityLooper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentSwitchToLooper = new Intent(MainActivity.this, LooperMessageQueueActivity.class);
+                startActivity(intentSwitchToLooper);
+            }
+        });
     }
 
     private void initView() {
         textViewTimer = findViewById(R.id.tv_timer);
         buttonCount = findViewById(R.id.bt_count);
+        buttonSwitchToActivityLooper = findViewById(R.id.bt_switch_to_activity_looper);
     }
 
     private void doCountDown() {
